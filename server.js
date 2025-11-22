@@ -11,12 +11,14 @@ const reportRoutes = require("./routes/reportRoutes");
 
 const app = express();
 app.use(
-    cors({
-        origin: process.env.CLIENT_URL || "*",
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-    })
+  cors({
+    origin: ["http://localhost:5173", "https://aishwarytaskmanager.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
 );
+
 
 //Middleware
 app.use(express.json());
